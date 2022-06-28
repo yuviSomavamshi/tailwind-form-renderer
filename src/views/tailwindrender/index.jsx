@@ -42,7 +42,7 @@ import { tailwindListWithDetailTester, TailwindListWithDetail } from "./addition
 import { tailwindAnyOfStringOrEnumControlTester, TailwindAnyOfStringOrEnumControl } from "./controls/TailwindAnyOfStringOrEnumControl";
 import { tailwindEnumArrayControlTester, TailwindEnumArrayControl } from "./renderers/TailwindEnumArrayRenderer";
 
-const Cells = [
+export const tailwindCells = [
   { tester: tailwindBooleanCellTester, cell: TailwindBooleanCell },
   { tester: tailwindDateCellTester, cell: TailwindDateCell },
   { tester: tailwindEnumCellTester, cell: TailwindEnumCell },
@@ -54,7 +54,7 @@ const Cells = [
   { tester: tailwindTimeCellTester, cell: TailwindTimeCell }
 ];
 
-const Renderers = [
+export const tailwindRenderers = [
   // controls
   { tester: tailwindArrayControlTester, renderer: TailwindArrayControl },
   { tester: tailwindBooleanControlTester, renderer: TailwindBooleanControl },
@@ -90,6 +90,11 @@ const Renderers = [
   { tester: tailwindEnumArrayControlTester, renderer: TailwindEnumArrayControl }
 ];
 
-export default function TailwindRenderer(props) {
-  return <div className="container">{!isEmpty(props.schema) && <JsonForms cells={Cells} renderers={Renderers} {...props} />}</div>;
-}
+module.exports = function TailwindRenderer(props) {
+  return (<div className="container">
+  {!isEmpty(props.schema) && <JsonForms cells={tailwindCells} renderers={tailwindRenderers} {...props} />}
+  </div>);
+};
+
+module.exports.tailwindCells = tailwindCells;
+module.exports.tailwindRenderers = tailwindRenderers;

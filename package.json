@@ -1,7 +1,7 @@
 {
   "name": "tailwind-form-renderer",
   "version": "1.0.0",
-  "main": "./src/",
+  "main": "./src/views/tailwindrender/index.jsx",
   "scripts": {
     "build": "npm run clean && npm run build:css && npm run build:js",
     "build:dev": "npm run build:css && npm run lint:fix && npm run dev:prettify",
